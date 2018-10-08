@@ -1,13 +1,10 @@
 language: go
+os: osx
 # Install the apt prerequisites
-addons:
-  apt:
-    packages:
-      - python-pygments
-      - snapd
+before_install:
+  - brew update && brew install hugo
 # Clean and don't fail
 install:
-  - sudo snap install hugo --channel=extended
   - rm -rf public || exit 0
 # Build the website
 script:
