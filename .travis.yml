@@ -2,14 +2,12 @@ language: go
 # Install the apt prerequisites
 addons:
   apt:
-    sources:
-      -
     packages:
       - python-pygments
       - snapd
 # Clean and don't fail
 install:
-  - snap install hugo --channel=extended
+  - sudo snap install hugo --channel=extended
   - rm -rf public || exit 0
 # Build the website
 script:
