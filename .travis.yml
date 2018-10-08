@@ -1,0 +1,22 @@
+# Install the apt prerequisites
+addons:
+  apt:
+    packages:
+      - python-pygments
+      - hugo
+# Clean and don't fail
+install:
+  - rm -rf public || exit 0
+# Build the website
+script:
+  - hugo
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  repo: https://github.com/1yzz/1yzz.github.io.git
+  target-branch: master
+  local-dir: public
+  keep-history: true
+  on:
+    branch: master
