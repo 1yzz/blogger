@@ -1,11 +1,15 @@
+language: go
 # Install the apt prerequisites
-before_install:
-  - sudo apt-get install python-pygments hugo
 addons:
   apt:
-    update: true
+    sources:
+      -
+    packages:
+      - python-pygments
+      - snapd
 # Clean and don't fail
 install:
+  - snap install hugo --channel=extended
   - rm -rf public || exit 0
 # Build the website
 script:
