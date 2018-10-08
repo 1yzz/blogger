@@ -1,19 +1,19 @@
 language: go
 os: osx
-# Install the apt prerequisites
 before_install:
-  - brew update && brew install hugo
-# Clean and don't fail
+- brew update && brew install hugo
 install:
-  - rm -rf public || exit 0
-# Build the website
+- rm -rf public || exit 0
 script:
-  - hugo
+- hugo
 deploy:
   provider: pages
-  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  github-token: "$GITHUB_TOKEN"
   repo: 1yzz/1yzz.github.io
   target-branch: master
-  local-dir: ./public
+  local-dir: "./public"
   on:
     branch: master
+notifications:
+  slack:
+    secure: JT+xylB4MNNiBfHf4QXTQvcd4IhO2aoxRDnjgVTGPp6VauNi9OlO1I25exyXMxKETysTpIDZnRM6NnyQ+DRz4b3b+8X1mk7oZa/P1N5NNW0plxxhOIfiHTNkl/D8cfttwFC9i0mpqlwAqYHrVmWRApavbIaeDzKOec1TTlWL3TKLIM8Q7K+JDP9Bv2JoxFkcAT9+hFbu1hJHNYyrZo8jdxsMoeu7dpgwAlVjk3qja+7HcDArqL9EbdWiKPXo9g6jpvOUu19ckrBgOYRzJGLakixGLm95eNTZLLz7RoWuWwOTdr+i2dN2jugf+nGwqZvLXxKxXPox7WnSJaFh2OzisR7MtjeJYb1H8GrjruIkTM1fUBWLV4vQaE1DzdcpWxDZfvVvA6Caaf3FEEt8hKt5rOjTIgzJaNVfvL8tx3SuK+km49+EUz2qCZwk+YDjSangwpWZ2N2r8Oy7Q5ywjTj5qu3RwuJ7971Ean/RSxs/PTEzxd9w+gsENBaMeAQiss7GwNzmZV5RTUhh5QYawoQiV40iyF1vQpVqCwGIjlbwcv8g8vCJF+fn6PCfZN5KZzIpKhavpP5IMRparKbOZ8naS4SFCmzYTQQkOrH47Zk+ggJb60eIhwXF2SdeGc4OSYCR6tuYaD1t62i9DL0usdZMagvueCrUj+f+vm24+jqTsEw=
