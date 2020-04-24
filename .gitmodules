@@ -2,3 +2,7 @@
 	path = 1yzz.github.io
 	url = https://github.com/1yzz/1yzz.github.io
 	branch = master
+[submodule "public"]
+	path = public
+	url = https://github.com/1yzz/1yzz.github.io
+	branch = master
